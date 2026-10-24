@@ -1,26 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
 @import "tailwindcss";
 
+/* .fira-code-<uniquifier> {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+/* .google-sans-<uniquifier> {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+} */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #08080a;
+  --foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.firacode{
+    font-family: "Fira Code", monospace;
+    word-spacing: -3px;
+    letter-spacing: 0.6px;
+}
+.googlesans{
+  font-family: "Google Sans", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #08080a;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: #111111;
+  color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #29292f;
+}
+
+::selection {
+  background: #843cff;
+  color: white;
+}
+
+/* ------------------------------------------------ */
+/* MAIN APP SCALE                                  */
+/* ------------------------------------------------ */
+
+.quantify-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #08080a;
+}
+
+/*
+  The original design is intentionally compact.
+  Don't allow the content to become enormous on
+  large monitors.
+*/
+.quantify-content {
+  width: calc(100% - 90px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quantify-contentchanged{
+    width: calc(100% - 90px);
+    border-radius: 4px;
+}
+
+/* ------------------------------------------------ */
+/* NAVBAR                                          */
+/* ------------------------------------------------ */
+
+.quantify-navbar {
+  border-bottom: 1px solid #202027;
+  background:#111012;
+  font-family: "Google Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 14px 30px;
+}
+
+/* ------------------------------------------------ */
+/* WATCHLIST                                       */
+/* ------------------------------------------------ */
+
+.watchlist-card {
+  border: 2px solid #18181f;
+  background: #101014;
+}
+
+/* ------------------------------------------------ */
+/* HERO                                            */
+/* ------------------------------------------------ */
+
+.hero-card {
+  height: 270px;
+}
+
+/* ------------------------------------------------ */
+/* STOCK TABLE                                     */
+/* ------------------------------------------------ */
+
+.stock-section {
+  margin-top: 35px;
+}
+
+.stock-table-row {
+  min-height: 57px;
+}
+
+/* ------------------------------------------------ */
+/* LARGE SCREENS                                   */
+/* ------------------------------------------------ */
+
+@media (min-width: 1500px) {
+  .quantify-content {
+    width: calc(100% - 68px);
+  }
+
+  .quantify-navbar {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+/* ------------------------------------------------ */
+/* LAPTOP                                          */
+/* ------------------------------------------------ */
+
+@media (max-width: 1200px) {
+  .quantify-content {
+    width: calc(100% - 50px);
+  }
+}
+
+/* ------------------------------------------------ */
+/* TABLET                                          */
+/* ------------------------------------------------ */
+
+@media (max-width: 900px) {
+  .quantify-content {
+    width: calc(100% - 32px);
+  }
+
+  .hero-card {
+    height: 330px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
