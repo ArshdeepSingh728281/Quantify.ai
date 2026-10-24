@@ -7983,6 +7983,19 @@ const answer = await callAI(
       error
     );
 
+console.error("[AI AGENT] AI provider unavailable:", error);
+
+console.error("[AI AGENT] Failure details:", {
+  message:
+    error instanceof Error
+      ? error.message
+      : String(error),
+  symbol: context.symbol || null,
+  userMessageLength: userMessage.length,
+  model: process.env.AI_MODEL || "(default model)",
+  hasApiKey: Boolean(process.env.AI_API_KEY),
+});
+
 
 
     const analysisMode = detectAnalysisMode(userMessage);

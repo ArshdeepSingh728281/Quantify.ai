@@ -1008,18 +1008,44 @@ export async function POST(request: Request) {
 
         let streamedAnswer = "";
 
+// const result = await runAgent(
+//   context,
+//   cleanMessage,
+//   history,
+//   (token) => {
+//     streamedAnswer += token;
+
+//     send("delta", {
+//       content: token,
+//     });
+//   }
+// );
+
+
+
+
+console.log("[AI CHAT] Starting agent", {
+  symbol: effectiveSymbol || null,
+  messageLength: cleanMessage.length,
+  historyLength: history.length,
+});
+
 const result = await runAgent(
   context,
   cleanMessage,
-  history,
-  (token) => {
-    streamedAnswer += token;
-
-    send("delta", {
-      content: token,
-    });
-  }
+  history
 );
+
+console.log("[AI CHAT] Agent finished", {
+  answerLength: result.answer.length,
+  toolsUsed: result.toolsUsed.map((tool) => ({
+    tool: tool.tool,
+    success: tool.success,
+  })),
+});
+
+
+
         /* ====================================================
            PREVIOUS TOOL RESULTS
         ==================================================== */
