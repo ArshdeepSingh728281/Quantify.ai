@@ -10,21 +10,38 @@ import {
   signIn,
   useSession,
 } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function QuantHero() {
+  const router = useRouter(); 
+
   const { data: session } = useSession();
 
+  // const requireAuth = () => {
+  //   if (!session) {
+  //     signIn("google", {
+  //       callbackUrl: "/",
+  //     });
+
+  //     return;
+  //   }
+
+  //   window.location.href = "/stock/NIFTY";
+  // };
+
   const requireAuth = () => {
-    if (!session) {
-      signIn("google", {
-        callbackUrl: "/",
-      });
+  const newChatId = crypto.randomUUID();
 
-      return;
-    }
+  if (!session) {
+    signIn("google", {
+      callbackUrl: `/stock/NIFTY/${newChatId}`,
+    });
 
-    window.location.href = "/stock/NIFTY";
-  };
+    return;
+  }
+
+  router.push(`/stock/NIFTY/${newChatId}`);
+};
 
   return (
     <section className="googlesans w-[calc(100%-90px)] mx-[auto] mt-[27px]">

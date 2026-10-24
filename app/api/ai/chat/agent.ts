@@ -7984,7 +7984,7 @@ const answer = await callAI(
     );
 
 console.error("[AI AGENT] AI provider unavailable:", error);
-
+98768787788
 console.error("[AI AGENT] Failure details:", {
   message:
     error instanceof Error
